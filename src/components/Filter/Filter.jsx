@@ -1,10 +1,10 @@
 import { Thumb } from './Filter.styles';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilter } from '../redux/selectors/contacts-selectors';
 import contactsActions from '../redux/actions/contacts-action';
+import * as selectors from 'components/redux/selectors/contacts-selectors';
 
 const Filter = () => {
-  const value = useSelector(getFilter);
+  const value = useSelector(selectors.getFilter);
 
   const dispatch = useDispatch();
   return (
