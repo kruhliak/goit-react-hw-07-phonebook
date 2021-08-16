@@ -1,10 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
-import {
-  getContacts,
-  addContact,
-  deleteContact,
-} from '../../services/contactsAPI';
+import * as contactsAPI from 'components/services/contactsAPI';
 
 const displayToastError = e => toast.error(`${e}`);
 
@@ -14,7 +10,7 @@ export const fetchContactsList = createAsyncThunk(
   'users/fetchContacts',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await getContacts();
+      const response = await contactsAPI.getContacts();
       return response;
     } catch (error) {
       displayToastError(error.message);
@@ -28,7 +24,7 @@ export const createItem = createAsyncThunk(
   async (contact, { rejectWithValue }) => {
     try {
       displayToastSuccess(`Contact ${contact.name} added`);
-      const response = await addContact(contact);
+      const response = await contactsAPI.addContact(contact);
       return response;
     } catch (error) {
       displayToastError(error.message);
@@ -41,7 +37,7 @@ export const deleteItem = createAsyncThunk(
   'contacts/delete',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await deleteContact(id);
+      const response = await contactsAPI.deleteContact(id);
       return response;
     } catch (error) {
       displayToastError(error.message);

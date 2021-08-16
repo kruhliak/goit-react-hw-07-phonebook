@@ -9,6 +9,7 @@ body {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+  padding: 10px 0;
 }
 
 code {
@@ -56,6 +57,8 @@ h6 {
   justify-content: center;
   align-items: center;
   margin: auto auto;
-  border: 1px dashed black;
   padding: 20px;
+  border-radius: 0px 0px 4px 4px;
+  box-shadow: 0px 1px 30px rgb(0 0 0 / 12%), 0px 2px 2px rgb(0 0 0 / 14%),
+    0px 2px 2px rgb(0 0 0 / 20%);
 }
